@@ -22,13 +22,7 @@ class Game {
                 this.update();
                 this.draw();
             } else {
-                alert("You died, hit start to play again!");
-                if (this.gameScore > this.highScore) {
-                    this.highScore = this.gameScore;
-                    this.highscore.innerText = "High Score: " + this.highScore;
-                }
-                this.gameScore = 0;
-                this.score.innerText = "Score: " + this.gameScore;
+                this.endGame();
                 clearInterval(interval);
             }
         }, parseInt(this.speed.value));
@@ -51,5 +45,15 @@ class Game {
 
         this.snake.draw();
         this.fruit.draw();
+    }
+
+    endGame() {
+        alert("You died, hit start to play again!");
+        if (this.gameScore > this.highScore) {
+            this.highScore = this.gameScore;
+            this.highscore.innerText = "High Score: " + this.highScore;
+        }
+        this.gameScore = 0;
+        this.score.innerText = "Score: " + this.gameScore;
     }
 }
